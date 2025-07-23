@@ -16,7 +16,7 @@ import (
 	"net"
 	"time"
 
-	"github.com/percipia/eslgo/command"
+	"github.com/cc-integration-team/eslgo/command"
 )
 
 type OutboundHandler func(ctx context.Context, conn *Conn, connectResponse *RawResponse)

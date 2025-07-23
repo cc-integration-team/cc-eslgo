@@ -21,7 +21,7 @@ import (
 	"time"
 
 	"github.com/cc-integration-team/cc-pkg/v2/pkg/logger"
-	"github.com/percipia/eslgo/command"
+	"github.com/cc-integration-team/eslgo/command"
 )
 
 type Conn struct {
