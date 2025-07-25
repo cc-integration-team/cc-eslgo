@@ -77,6 +77,12 @@ func (opts InboundOptions) Dial(address string) (*Conn, error) {
 
 func (c *Conn) disconnectLoop(onDisconnect func()) {
 	select {
+	case <-c.disconnectSignal:
+		c.Close()
+		if onDisconnect != nil {
+			onDisconnect()
+		}
+		return
 	case <-c.responseChannels[TypeDisconnect]:
 		c.Close()
 		if onDisconnect != nil {

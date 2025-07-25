@@ -29,6 +29,7 @@ type Conn struct {
 	reader               *bufio.Reader
 	header               *textproto.Reader
 	writeLock            sync.Mutex
+	disconnectSignal     chan struct{}
 	runningContext       context.Context
 	stopFunc             func()
 	responseChannels     map[string]chan *RawResponse
@@ -71,9 +72,10 @@ func newConnection(c net.Conn, outbound bool, opts Options) *Conn {
 	runningContext, stop := context.WithCancel(opts.Context)
 
 	instance := &Conn{
-		conn:   c,
-		reader: reader,
-		header: header,
+		conn:             c,
+		reader:           reader,
+		header:           header,
+		disconnectSignal: make(chan struct{}),
 		responseChannels: map[string]chan *RawResponse{
 			TypeReply:       make(chan *RawResponse),
 			TypeAPIResponse: make(chan *RawResponse),
@@ -290,6 +292,7 @@ func (c *Conn) receiveLoop() {
 	for c.runningContext.Err() == nil {
 		err := c.doMessage()
 		if err != nil {
+			c.disconnectSignal <- struct{}{}
 			c.logger.Warnf("Error receiving message: %s\n", err.Error())
 			break
 		}
