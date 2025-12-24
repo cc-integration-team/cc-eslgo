@@ -54,7 +54,6 @@ type Options struct {
 // DefaultOptions - The default options used for creating the connection
 var DefaultOptions = Options{
 	Context:     context.Background(),
-	Logger:      logger.NewNulllogAdapter(),
 	ExitTimeout: 5 * time.Second,
 }
 
@@ -63,11 +62,6 @@ const EndOfMessage = "\r\n\r\n"
 func newConnection(c net.Conn, outbound bool, opts Options) *Conn {
 	reader := bufio.NewReader(c)
 	header := textproto.NewReader(reader)
-
-	// If logger is nil, do not actually output anything
-	if opts.Logger == nil {
-		opts.Logger = logger.NewNulllogAdapter()
-	}
 
 	runningContext, stop := context.WithCancel(opts.Context)
 

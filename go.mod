@@ -5,7 +5,7 @@ go 1.24.0
 toolchain go1.24.5
 
 require (
-	github.com/cc-integration-team/cc-pkg/v2 v2.0.0
+	github.com/cc-integration-team/cc-pkg/v2 v2.0.5
 	github.com/stretchr/testify v1.7.0
 )
 

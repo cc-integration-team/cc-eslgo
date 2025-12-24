@@ -1,5 +1,5 @@
-github.com/cc-integration-team/cc-pkg/v2 v2.0.0 h1:95bUcrOQoPtzVNnlz8PT/o6JXbYGf14CVh+ZXs4SKwk=
-github.com/cc-integration-team/cc-pkg/v2 v2.0.0/go.mod h1:bIroUplA0uqUaFbOpkGdbOEdhpuNxuXJ9jVqLS3bohM=
+github.com/cc-integration-team/cc-pkg/v2 v2.0.5 h1:svo4kVGeNjeSCWmmmMLA8BDsO2/4uz7cu400CbvoWAE=
+github.com/cc-integration-team/cc-pkg/v2 v2.0.5/go.mod h1:bIroUplA0uqUaFbOpkGdbOEdhpuNxuXJ9jVqLS3bohM=
 github.com/coreos/go-systemd/v22 v22.5.0/go.mod h1:Y58oyj3AT4RCenI/lSvhwexgC+NSVTIJ3seZv2GcEnc=
 github.com/davecgh/go-spew v1.1.0 h1:ZDRjVQ15GmhC3fiQ8ni8+OwkZQO4DARzQgrnXU1Liz8=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
